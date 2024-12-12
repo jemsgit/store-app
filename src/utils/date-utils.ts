@@ -32,6 +32,10 @@ export function dateToFormat(date: Date, outputFormat: string = "DD.MM.YYYY") {
   return dayjs(date).format(outputFormat);
 }
 
+export function minusHour(date: Date) {
+  return dayjs(date).subtract(1, "h").toDate();
+}
+
 export function getTimeDiff(inputDate: Date) {
   const timezoneShiftMinutes =
     new Date().getTimezoneOffset() - moscowOffsetMinutes;
