@@ -67,9 +67,9 @@ function OrdersList(props: OrdersListProps) {
             },
             (_, rowIndex) => (
               <div key={rowIndex} className={styles.row}>
-                {splitedOrders.map((group, colIndex) => (
+                {splitedOrders.map((group) => (
                   <div
-                    key={colIndex}
+                    key={(group[rowIndex] as OrderModel).id}
                     className={isLoading ? styles.cellSkeleton : styles.cell}
                   >
                     {group[rowIndex] ? (

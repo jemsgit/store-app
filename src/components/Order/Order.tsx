@@ -30,6 +30,23 @@ function Order(props: Props) {
     return () => clearInterval(interval);
   }, [order.state, order.readyForPackingAt, isLong]);
 
+  useEffect(() => {
+    let interval = undefined;
+    if (order?.state === "На сборку") {
+      interval = setInterval(() => {
+        let diff = getTimeDiff(order.readyForPackingAt as Date);
+        const elapsedTime = msToHuman(diff);
+        setEllapsed(elapsedTime);
+        if (diff > 300000) {
+          setIsLong(true);
+        } else {
+          setIsLong(false);
+        }
+      }, 200);
+    }
+    return () => clearInterval(interval);
+  }, [order.state, order.readyForPackingAt, isLong]);
+
   if (order.state === "На сборку") {
     return (
       <Box
