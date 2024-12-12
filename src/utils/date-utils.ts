@@ -19,8 +19,8 @@ export function msToHuman(ms: number) {
   const minutes = parseInt((seconds / 60).toString()); // 60 seconds in 1 minute
   // 4- Keep only seconds not extracted to minutes:
   seconds = seconds % 60;
-  return `${hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds.toFixed(
-    2
+  return `${hours}:${minutes < 10 ? `0${minutes}` : minutes}:${Math.round(
+    seconds
   )}`;
 }
 

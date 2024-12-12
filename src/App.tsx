@@ -22,25 +22,22 @@ declare module "@mui/material/styles" {
 
 export const lightTheme = createTheme({
   palette: {
+    mode: "dark", // Dark theme
+    background: {
+      default: "rgb(34, 40, 49)", // Main background
+      paper: "rgb(57, 62, 70)", // Secondary background
+    },
     primary: {
-      light: "#bfd7ff",
-      main: "#ffe66d", // The main color is used for primary components like buttons
-      dark: "#788bff",
-      contrastText: "#ffffff", // Text color on primary components
+      main: "rgb(255, 211, 105)", // Primary accent
+      contrastText: "rgb(34, 40, 49)", // Text color for primary buttons
     },
     secondary: {
-      light: "#e2fdff",
-      main: "#94b9f2",
-      dark: "#292f36",
-      contrastText: "#292f36", // Text color on secondary components
-    },
-    background: {
-      default: "#F7FFF7", // Default background color
-      paper: "#b0e6ff", // Background color for Paper components
+      main: "rgb(238, 238, 238)", // Secondary accent (e.g., for text/icons)
+      contrastText: "rgb(34, 40, 49)",
     },
     text: {
-      primary: "#343434", // Text color for primary content
-      secondary: "#2f3061", // Text color for secondary content
+      primary: "rgb(238, 238, 238)", // Main text color
+      secondary: "rgb(255, 211, 105)", // Secondary text (for highlights)
     },
   },
   breakpoints: {

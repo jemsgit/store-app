@@ -16,7 +16,8 @@ function Navigation() {
       sx={{
         borderRadius: "10px",
         mb: 2,
-        background: "#6d9eff",
+        border: "1px white solid",
+        background: (theme) => theme.palette.background.default,
       }}
     >
       <Toolbar variant="dense" sx={{ alignItems: "center" }}>

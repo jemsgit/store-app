@@ -29,7 +29,7 @@ h1 {
     background-color: rgba(255, 0, 0, 0.524);
   }
   50% {
-    background-color: white;
+    background-color: #828080;
   }
   100% {
     background-color: rgba(255, 0, 0, 0.524);
@@ -41,7 +41,7 @@ h1 {
     background-color: rgba(6, 210, 60, 0.524);
   }
   50% {
-    background-color: white;
+    background-color: #828080;
   }
   100% {
     background-color: rgba(6, 210, 60, 0.524);

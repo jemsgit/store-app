@@ -54,6 +54,7 @@ function Order(props: Props) {
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
+          padding: 1,
           animation: isLong ? "bgBlink 2s ease 2s infinite" : "none",
         }}
       >
@@ -70,6 +71,7 @@ function Order(props: Props) {
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
+          padding: 1,
           animation: order.updated ? "bgBlinkGr 2s ease" : "none",
         }}
       >
@@ -86,6 +88,7 @@ function Order(props: Props) {
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
+          padding: 1,
           animation: order.updated ? "bgBlinkGr 2s ease" : "none",
         }}
       >

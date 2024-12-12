@@ -44,11 +44,14 @@ function OrdersList(props: OrdersListProps) {
       sx={{
         p: isDesktop ? 3 : 0.5,
         borderRadius: 3,
-        border: () => `1px #6a9dff solid`,
-        boxShadow: "7px 4px 3px #a5bde6",
+        border: (theme) => `1px ${theme.palette.text.secondary} solid`,
+        boxShadow: () => `7px 4px 3px rgb(255 211 105 / 18%)`,
       }}
     >
-      <Typography variant="h5" sx={{ marginBottom: 2 }}>
+      <Typography
+        variant="h5"
+        sx={{ marginBottom: 2, color: (theme) => theme.palette.text.secondary }}
+      >
         Онлайн статус
       </Typography>
 
