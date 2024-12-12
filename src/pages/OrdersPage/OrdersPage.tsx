@@ -32,7 +32,13 @@ function OrdersPage() {
   }, []);
 
   return (
-    <Stack gap={3} sx={{ flexDirection: isDesktop ? "row" : "column" }}>
+    <Stack
+      gap={3}
+      sx={{
+        flexDirection: isDesktop ? "row" : "column",
+        alignItems: "stretch",
+      }}
+    >
       <Box sx={{ flex: "1 1 auto" }}>
         <Packers packers={packers} isLoading={isLoadingPackers} />
       </Box>
