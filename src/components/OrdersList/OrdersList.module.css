@@ -1,0 +1,56 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #94b9f2;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.header span {
+  display: flex;
+  flex: 1 1 300px;
+  padding: 10px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.cell {
+  border: 1px solid #94b9f2;
+  padding: 8px;
+  flex: 1 1 300px;
+  border-top-width: 0;
+  background: #ffffff;
+}
+
+.cell:not(:last-child) {
+  border-right-width: 0;
+}
+
+.cellSkeleton {
+  border: 1px solid #94b9f2;
+  padding: 8px;
+  flex: 1 1 300px;
+  height: 30px;
+  border-top-width: 0;
+  background: linear-gradient(-45deg, #266681, #efebda);
+  animation: gradient 2s ease infinite;
+  background-size: 400% 400%;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

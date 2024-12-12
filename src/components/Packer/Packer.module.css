@@ -1,0 +1,40 @@
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.cell {
+  border: 1px solid #94b9f2;
+  padding: 8px;
+  flex: 1 1 300px;
+  border-top-width: 0;
+  background: #ffffff;
+  text-align: left;
+}
+
+.cellSkeleton {
+  border: 1px solid #94b9f2;
+  padding: 8px;
+  flex: 1 1 300px;
+  height: 30px;
+  border-top-width: 0;
+  background: linear-gradient(-45deg, #bce4f5, #f6fd98);
+  animation: gradient 2s ease infinite;
+  background-size: 400% 400%;
+}
+
+.cell:not(:last-child) {
+  border-right-width: 0;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
