@@ -243,7 +243,7 @@ const initialSlots = slots.slice();
 // const slots = generateSlots();
 
 // Инициализация WebSocket сервера
-const wss = new WebSocketServer({ port: 8080 });
+const wss = new WebSocketServer({ port: 8084 });
 
 console.log("WebSocket server running on ws://localhost:8080");
 
