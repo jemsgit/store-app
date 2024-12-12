@@ -2,7 +2,6 @@ import { Box } from "@mui/material";
 import { cointainer, content, mobileContent } from "./MainLayout.styles";
 import { Outlet } from "react-router-dom";
 import Navigation from "../Navigaton/Navigation";
-import Footer from "../Footer/Footer";
 import { useDesktopMode } from "../../hooks/useDesktop";
 
 function MainLayout() {
@@ -13,7 +12,7 @@ function MainLayout() {
         <Box sx={isDesktop ? content : mobileContent}>
           <Navigation />
           <Outlet />
-          <Footer />
+          {/* <Footer /> */}
         </Box>
       </Box>
     </Box>
