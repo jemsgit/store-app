@@ -34,7 +34,7 @@ function Order(props: Props) {
   useEffect(() => {
     setTimeout(() => {
       setIsNew(false);
-    });
+    }, 2000);
   }, []);
 
   useEffect(() => {
