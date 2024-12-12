@@ -8,8 +8,6 @@ dayjs.extend(utc);
 dayjs.extend(customParseFormat);
 dayjs.extend(timezone);
 
-const moscowOffsetMinutes = -3 * 60;
-
 export function dateToFormat(date, outputFormat = "DD.MM.YYYY") {
   return dayjs(date).format(outputFormat);
 }
@@ -245,7 +243,7 @@ const initialSlots = slots.slice();
 // Инициализация WebSocket сервера
 const wss = new WebSocketServer({ port: 8084 });
 
-console.log("WebSocket server running on ws://localhost:8080");
+console.log("WebSocket server running on ws://localhost:8084");
 
 // Обработчик подключения клиента
 wss.on("connection", (ws) => {
@@ -262,7 +260,7 @@ wss.on("connection", (ws) => {
 
 // Функция для случайного изменения данных
 function updateSlots() {
-  const shouldAddNew = Math.random() > 0.3; // С 30% вероятностью добавляем новый элемент
+  const shouldAddNew = Math.random() > 0.6; // С 30% вероятностью добавляем новый элемент
 
   if (shouldAddNew) {
     // Добавляем новый элемент
@@ -271,13 +269,10 @@ function updateSlots() {
       type: "customerorder",
       name: `060${Math.round(Math.random() * 900)}`,
       state: "На сборку",
-      stateTime: dateToFormat(
-        minusHour(new Date()),
-        "YYYY-MM-DDTHH:mm:ss:SSSZ"
-      ),
+      stateTime: dateToFormat(minusHour(new Date()), "YYYY-MM-DDTHH:mm:ss.SSS"),
       readyForPackingAt: dateToFormat(
         minusHour(new Date()),
-        "YYYY-MM-DDTHH:mm:ss:SSSZ"
+        "YYYY-MM-DDTHH:mm:ss.SSS"
       ),
       packedAt: null,
       isPacked: false,
@@ -291,14 +286,14 @@ function updateSlots() {
       if (Math.random() > 0.5) {
         slots[randomIndex].packedAt = dateToFormat(
           minusHour(new Date()),
-          "YYYY-MM-DDTHH:mm:ss:SSSZ"
+          "YYYY-MM-DDTHH:mm:ss.SSS"
         );
         slots[randomIndex].state = "Собран";
         slots[randomIndex].isPacked = true;
       } else {
         slots[randomIndex].packedAt = dateToFormat(
           minusHour(new Date()),
-          "YYYY-MM-DDTHH:mm:ss:SSSZ"
+          "YYYY-MM-DDTHH:mm:ss.SSS"
         );
         slots[randomIndex].state = "Готов к отгрузке";
         slots[randomIndex].isPacked = false;

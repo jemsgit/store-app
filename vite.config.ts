@@ -19,4 +19,7 @@ export default defineConfig(() => ({
   preview: {
     port: 8082,
   },
+  server: {
+    port: 8082,
+  },
 }));
