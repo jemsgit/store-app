@@ -52,7 +52,12 @@ class RealTimeOrdersService {
           }
         }
       }
+      (update as Order).updated = true;
       store.dispatch(updateOrders(update as Order));
+      setTimeout(() => {
+        (update as Order).updated = false;
+        store.dispatch(updateOrders(update as Order));
+      }, 2000);
     }
   };
 }

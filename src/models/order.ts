@@ -21,6 +21,7 @@ export type Order = {
   packingTime?: string; // время на сборку - разница между "собран" и "на сборку"
   isPacked: boolean; // был в статусе собран
   stateTime: Date;
+  updated?: boolean;
 };
 
 type UpdateType = "initial" | "update";

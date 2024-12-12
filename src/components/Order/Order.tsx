@@ -12,7 +12,6 @@ function Order(props: Props) {
 
   const [ellapsed, setEllapsed] = useState<string>("");
   const [isLong, setIsLong] = useState<boolean>(false);
-  const [isNew, setIsNew] = useState<boolean>(false);
 
   useEffect(() => {
     let interval = undefined;
@@ -30,16 +29,6 @@ function Order(props: Props) {
     }
     return () => clearInterval(interval);
   }, [order.state, order.readyForPackingAt, isLong]);
-
-  useEffect(() => {
-    let diff = getTimeDiff(order.stateTime as Date);
-    if (diff < 10000) {
-      setIsNew(true);
-    }
-    setTimeout(() => {
-      setIsNew(false);
-    }, 2000);
-  }, [order.stateTime]);
 
   useEffect(() => {
     let interval = undefined;
@@ -81,7 +70,7 @@ function Order(props: Props) {
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
-          animation: isNew ? "bgBlinkGr 2s ease" : "none",
+          animation: order.updated ? "bgBlinkGr 2s ease" : "none",
         }}
       >
         <span>{order.name}</span>
@@ -97,7 +86,7 @@ function Order(props: Props) {
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
-          animation: isNew ? "bgBlinkGr 2s ease" : "none",
+          animation: order.updated ? "bgBlinkGr 2s ease" : "none",
         }}
       >
         <span>{order.name}</span>
