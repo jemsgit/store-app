@@ -46,7 +46,6 @@ function OrdersList(props: OrdersListProps) {
         borderRadius: 3,
         border: (theme) => `1px ${theme.palette.text.secondary} solid`,
         boxShadow: () => `7px 4px 3px rgb(255 211 105 / 18%)`,
-        height: "100%",
       }}
     >
       <Typography
