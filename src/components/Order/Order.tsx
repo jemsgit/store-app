@@ -12,7 +12,7 @@ function Order(props: Props) {
 
   const [ellapsed, setEllapsed] = useState<string>("");
   const [isLong, setIsLong] = useState<boolean>(false);
-  const [isNew, setIsNew] = useState<boolean>(true);
+  const [isNew, setIsNew] = useState<boolean>(false);
 
   useEffect(() => {
     let interval = undefined;
@@ -32,10 +32,14 @@ function Order(props: Props) {
   }, [order.state, order.readyForPackingAt, isLong]);
 
   useEffect(() => {
+    let diff = getTimeDiff(order.stateTime as Date);
+    if (diff < 10000) {
+      setIsNew(true);
+    }
     setTimeout(() => {
       setIsNew(false);
     }, 2000);
-  }, []);
+  }, [order.stateTime]);
 
   useEffect(() => {
     let interval = undefined;

@@ -269,11 +269,8 @@ function updateSlots() {
       type: "customerorder",
       name: `060${Math.round(Math.random() * 900)}`,
       state: "На сборку",
-      stateTime: dateToFormat(minusHour(new Date()), "YYYY-MM-DDTHH:mm:ss.SSS"),
-      readyForPackingAt: dateToFormat(
-        minusHour(new Date()),
-        "YYYY-MM-DDTHH:mm:ss.SSS"
-      ),
+      stateTime: dateToFormat(new Date(), "YYYY-MM-DDTHH:mm:ss.SSS"),
+      readyForPackingAt: dateToFormat(new Date(), "YYYY-MM-DDTHH:mm:ss.SSS"),
       packedAt: null,
       isPacked: false,
     };
@@ -285,14 +282,22 @@ function updateSlots() {
     if (slots[randomIndex].state === "На сборку") {
       if (Math.random() > 0.5) {
         slots[randomIndex].packedAt = dateToFormat(
-          minusHour(new Date()),
+          new Date(),
           "YYYY-MM-DDTHH:mm:ss.SSS"
         );
         slots[randomIndex].state = "Собран";
         slots[randomIndex].isPacked = true;
+        slots[randomIndex].stateTime = dateToFormat(
+          new Date(),
+          "YYYY-MM-DDTHH:mm:ss.SSS"
+        );
       } else {
         slots[randomIndex].packedAt = dateToFormat(
-          minusHour(new Date()),
+          new Date(),
+          "YYYY-MM-DDTHH:mm:ss.SSS"
+        );
+        slots[randomIndex].stateTime = dateToFormat(
+          new Date(),
           "YYYY-MM-DDTHH:mm:ss.SSS"
         );
         slots[randomIndex].state = "Готов к отгрузке";
@@ -300,6 +305,10 @@ function updateSlots() {
       }
     } else if (slots[randomIndex].state === "Собран") {
       slots[randomIndex].state = "Готов к отгрузке";
+      slots[randomIndex].stateTime = dateToFormat(
+        new Date(),
+        "YYYY-MM-DDTHH:mm:ss.SSS"
+      );
     }
     slots[randomIndex].coefficient += Math.floor(Math.random() * 10) - 5; // Изменение на число от -5 до 5
     broadcast({ type: "update", data: slots[randomIndex] });
