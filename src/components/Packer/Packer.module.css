@@ -12,6 +12,7 @@
   border: 1px solid rgb(36 43 53);
   padding: 8px;
   flex: 1 1 300px;
+  width: 33%;
   border-top-width: 0;
   text-align: left;
 }

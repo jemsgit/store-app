@@ -29,6 +29,7 @@
   border: 1px solid rgb(36 43 53);
   flex: 1 1 300px;
   border-top-width: 0;
+  width: 33%;
 }
 
 .cell:not(:last-child) {
