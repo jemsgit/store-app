@@ -26,14 +26,13 @@ function Packers(props: Props) {
         variant="h5"
         sx={{ marginBottom: 2, color: (theme) => theme.palette.text.secondary }}
       >
-        Топ сборщики
+        Cборщики
       </Typography>
 
       <div>
         <div className={styles.header}>
           <span>ФИО</span>
           <span>Собрано</span>
-          <span>Среднее значение чего то</span>
         </div>
 
         <div className={styles.body}>

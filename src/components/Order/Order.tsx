@@ -15,7 +15,7 @@ function Order(props: Props) {
 
   useEffect(() => {
     let interval = undefined;
-    if (order?.state === "На сборку") {
+    if (order?.state === "Подтвержден") {
       interval = setInterval(() => {
         let diff = getTimeDiff(order.readyForPackingAt as Date);
         const elapsedTime = msToHuman(diff);
@@ -32,7 +32,7 @@ function Order(props: Props) {
 
   useEffect(() => {
     let interval = undefined;
-    if (order?.state === "На сборку") {
+    if (order?.state === "Подтвержден") {
       interval = setInterval(() => {
         let diff = getTimeDiff(order.readyForPackingAt as Date);
         const elapsedTime = msToHuman(diff);
@@ -47,7 +47,7 @@ function Order(props: Props) {
     return () => clearInterval(interval);
   }, [order.state, order.readyForPackingAt, isLong]);
 
-  if (order.state === "На сборку") {
+  if (order.state === "Подтвержден") {
     return (
       <Box
         sx={{
@@ -81,7 +81,7 @@ function Order(props: Props) {
     );
   }
 
-  if (order.state === "Готов к отгрузке") {
+  if (order.state === "Требуется отгрузка") {
     return (
       <Box
         sx={{

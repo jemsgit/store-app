@@ -1,19 +1,36 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { ordersAdapter } from "../adapters/api-adapter";
-import { Order } from "../models/order";
+import { Order, Statistic } from "../models/order";
 
 // Define the state shape
 interface SlotsState {
   orders: Order[];
+  statistic: Statistic;
   visibleOrders: Order[];
   isLoading: boolean;
+  isStatisticLoading: boolean;
 }
 
 // Initial state
 const initialState: SlotsState = {
   orders: [],
   visibleOrders: [],
+  statistic: {
+    todayShipment: {
+      count: 0,
+      weight: 0,
+    },
+    tomorrowShipment: {
+      count: 0,
+      weight: 0,
+    },
+    todayShipmentCount: 0,
+    yesterdayShipmentCount: 0,
+    yearRecord: 0,
+    monthlyAverageTime: 0,
+  },
   isLoading: false,
+  isStatisticLoading: false,
 };
 
 // Async thunks for fetching slots and filters
@@ -21,6 +38,14 @@ export const fetchOrders = createAsyncThunk("slots/fetchOrders", async () => {
   const response = await ordersAdapter.getOrders();
   return response || [];
 });
+
+export const fetchStatistic = createAsyncThunk(
+  "slots/fetchStatistic",
+  async () => {
+    const response = await ordersAdapter.getStatistic();
+    return response || [];
+  }
+);
 
 // Slice
 const slotsSlice = createSlice({
@@ -63,6 +88,15 @@ const slotsSlice = createSlice({
       .addCase(fetchOrders.fulfilled, (state, action) => {
         state.orders = action.payload;
         state.isLoading = false;
+      })
+      .addCase(fetchStatistic.pending, (state) => {
+        state.isStatisticLoading = true;
+      })
+      .addCase(fetchStatistic.fulfilled, (state, action) => {
+        if (action.payload) {
+          state.statistic = action.payload as Statistic;
+        }
+        state.isStatisticLoading = false;
       });
   },
 });

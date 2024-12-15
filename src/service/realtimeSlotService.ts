@@ -40,10 +40,11 @@ class RealTimeOrdersService {
       const currentOrder = orders.orders.find((item) => item.id === order.id);
       if (currentOrder) {
         if (
-          (currentOrder.state === "На сборку" &&
-            (order.state === "Собран" || order.state === "Готов к отгрузке")) ||
+          (currentOrder.state === "Подтвержден" &&
+            (order.state === "Собран" ||
+              order.state === "Требуется отгрузка")) ||
           (currentOrder.state === "Собран" &&
-            order.state === "Готов к отгрузке")
+            order.state === "Требуется отгрузка")
         ) {
           try {
             audio.play();

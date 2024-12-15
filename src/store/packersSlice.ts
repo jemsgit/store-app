@@ -26,8 +26,6 @@ const packersSlice = createSlice({
   initialState,
   reducers: {
     setInitialOrders(state, action: PayloadAction<Packer[]>) {
-      console.log(2);
-      console.log(action.payload);
       state.packers = action.payload;
     },
     updateOrders(state, action: PayloadAction<Packer>) {

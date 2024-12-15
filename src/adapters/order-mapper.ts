@@ -19,6 +19,9 @@ export const orderMapper = (item: OrderDTO): Order => {
     item.state === "Собран"
       ? getTimeDiff(packedAt, readyForPackingAt)
       : undefined;
+  const isPacked = item.statusHistory
+    ? !!item.statusHistory.find((hist) => hist.state === "Собран")
+    : false;
   return {
     id: item.id,
     name: item.name,
@@ -26,7 +29,7 @@ export const orderMapper = (item: OrderDTO): Order => {
     readyForPackingAt: readyForPackingAt,
     packedAt: packedAt,
     packingTime,
-    isPacked: item.isPacked,
+    isPacked,
     stateTime: new Date(item.stateTime.replace("Z", "")),
   };
 };

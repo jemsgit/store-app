@@ -42,7 +42,7 @@
   flex: 1 1 300px;
   height: 30px;
   border-top-width: 0;
-  background: linear-gradient(-45deg, #266681, #efebda);
+  background: linear-gradient(-45deg, #0a171c, #efebda);
   animation: gradient 2s ease infinite;
   background-size: 400% 400%;
 }

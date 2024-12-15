@@ -14,7 +14,6 @@ function Packer(props: Props) {
       <div className={styles.row}>
         <div className={styles.cellSkeleton}></div>
         <div className={styles.cellSkeleton}></div>
-        <div className={styles.cellSkeleton}></div>
       </div>
     );
   }
@@ -22,7 +21,6 @@ function Packer(props: Props) {
     <div className={styles.row}>
       <div className={styles.cell}>{packer?.name}</div>
       <div className={styles.cell}>{packer?.packsCount}</div>
-      <div className={styles.cell}>{packer?.perValue}</div>
     </div>
   );
 }
