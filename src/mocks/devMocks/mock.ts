@@ -411,25 +411,21 @@ const packers = [
     id: "1",
     name: "Николаев П. А.",
     packsCount: 43,
-    perValue: 23.43,
   },
   {
     id: "2",
     name: "Самолов П. П.",
     packsCount: 23,
-    perValue: 13.43,
   },
   {
     id: "3",
     name: "Валуев С. А.",
     packsCount: 11,
-    perValue: 4.43,
   },
   {
     id: "4",
     name: "Николаев П. А.",
     packsCount: "43",
-    perValue: "23.43",
   },
 ];
 
@@ -445,7 +441,14 @@ export default function mocks() {
       url: "/api/packers",
       method: "get",
       timeout: 2000,
-      response: packers,
+      response: {
+        packers: packers,
+        record: {
+          bestPacker: { name: "Валентинов", packsCount: 23 },
+          yearCount: 223,
+          yearWeight: 700,
+        },
+      },
     },
     {
       url: "/api/statistic",

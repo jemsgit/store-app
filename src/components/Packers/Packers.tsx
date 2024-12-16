@@ -1,16 +1,18 @@
 import { Paper, Typography } from "@mui/material";
 import styles from "./Packers.module.css";
 import { useDesktopMode } from "../../hooks/useDesktop";
-import { Packer as PackerModel } from "../../models/packer";
+import { Packer as PackerModel, PackerResponseDTO } from "../../models/packer";
 import Packer from "../Packer/Packer";
+import PackerStatistic from "../PackerStatistic/PackerStatistic";
 
 interface Props {
   packers: PackerModel[];
   isLoading: boolean;
+  record?: PackerResponseDTO["record"];
 }
 
 function Packers(props: Props) {
-  const { packers, isLoading } = props;
+  const { packers, record, isLoading } = props;
   const isDesktop = useDesktopMode();
   return (
     <Paper
@@ -43,6 +45,13 @@ function Packers(props: Props) {
               ))}
         </div>
       </div>
+      {isLoading ? null : (
+        <PackerStatistic
+          bestPacker={record?.bestPacker}
+          yearCount={record?.yearCount}
+          yearWeight={record?.yearWeight}
+        />
+      )}
     </Paper>
   );
 }

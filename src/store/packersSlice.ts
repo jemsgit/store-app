@@ -1,22 +1,24 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { ordersAdapter } from "../adapters/api-adapter";
-import { Packer } from "../models/packer";
+import { Packer, PackerResponseDTO } from "../models/packer";
 
 // Define the state shape
 interface PackersState {
   packers: Packer[];
+  record?: PackerResponseDTO["record"];
   isLoading: boolean;
 }
 
 // Initial state
 const initialState: PackersState = {
   packers: [],
+  record: undefined,
   isLoading: false,
 };
 
 // Async thunks for fetching slots and filters
 export const fetchPackers = createAsyncThunk("slots/fetchPackers", async () => {
-  const response = await ordersAdapter.getPacker();
+  const response = await ordersAdapter.getPackers();
   return response || [];
 });
 
@@ -52,7 +54,11 @@ const packersSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(fetchPackers.fulfilled, (state, action) => {
-        state.packers = action.payload;
+        if (action.payload) {
+          const payload = action.payload as PackerResponseDTO;
+          state.packers = payload.packers;
+          state.record = payload.record;
+        }
         state.isLoading = false;
       });
   },

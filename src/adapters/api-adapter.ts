@@ -1,7 +1,6 @@
 import fetcher from "../lib/fetcher";
 import { Order, Statistic } from "../models/order";
-import { Packer } from "../models/packer";
-import { packerMapper } from "./apcker-mapper";
+import { PackerResponseDTO } from "../models/packer";
 import { orderMapper } from "./order-mapper";
 
 export const ordersAdapter = {
@@ -21,10 +20,10 @@ export const ordersAdapter = {
       console.log(e);
     }
   },
-  getPacker: async (): Promise<Packer[] | undefined> => {
+  getPackers: async (): Promise<PackerResponseDTO | undefined> => {
     try {
       let res = await fetcher.get("/api/packers");
-      return res.data.map(packerMapper);
+      return res.data;
     } catch (e) {
       console.log(e);
     }

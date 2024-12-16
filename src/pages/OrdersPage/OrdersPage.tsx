@@ -18,9 +18,11 @@ function OrdersPage() {
   const { orders, isLoading, statistic, isStatisticLoading } = useAppSelector(
     (state) => state.orders
   );
-  const { packers, isLoading: isLoadingPackers } = useAppSelector(
-    (state) => state.packers
-  );
+  const {
+    packers,
+    record,
+    isLoading: isLoadingPackers,
+  } = useAppSelector((state) => state.packers);
 
   useEffect(() => {
     dispatch(fetchOrders());
@@ -63,7 +65,11 @@ function OrdersPage() {
         }}
       >
         <Box sx={{ flex: "1 1 auto" }}>
-          <Packers packers={packers} isLoading={isLoadingPackers} />
+          <Packers
+            packers={packers}
+            isLoading={isLoadingPackers}
+            record={record}
+          />
         </Box>
         <Box sx={{ flex: "2 2 auto" }}>
           <OrdersList orders={orders} isLoading={isLoading} />
