@@ -12,6 +12,7 @@ import {
 } from "./Statistics.styles";
 
 import recordSound from "./recordWasMade.mp3";
+import { useDesktopMode } from "../../hooks/useDesktop";
 
 const auido = new Audio(recordSound);
 
@@ -44,6 +45,7 @@ function Statistic(props: Props) {
 
   let recordRef = useRef(yearRecord);
   let recordElRef = useRef<HTMLSpanElement | null>(null);
+  const isDesktop = useDesktopMode();
 
   const [shipmentCountIsVisible, setVisibility] = useState(false);
 
@@ -58,15 +60,18 @@ function Statistic(props: Props) {
 
   useEffect(() => {
     if (recordRef.current) {
-      if (recordElRef.current) {
-        recordElRef.current.classList.add("record");
-        setTimeout(() => {
-          if (!recordElRef.current) {
-            return;
-          }
-          recordElRef.current.classList.remove("record");
-        }, 3000);
-      }
+      setTimeout(() => {
+        if (recordElRef.current) {
+          recordElRef.current.classList.add("record");
+          setTimeout(() => {
+            if (!recordElRef.current) {
+              return;
+            }
+            recordElRef.current.classList.remove("record");
+          }, 3000);
+        }
+      }, 3000);
+
       try {
         auido.play();
       } catch (e) {}
@@ -77,8 +82,8 @@ function Statistic(props: Props) {
 
   return (
     <Box sx={containerStyles}>
-      <Stack direction="row" sx={staticticsStack}>
-        <Paper sx={paperStyles(isLoading)}>
+      <Stack direction={isDesktop ? "row" : "column"} sx={staticticsStack}>
+        <Paper sx={paperStyles(isLoading, isDesktop)}>
           <Typography
             variant="h6"
             sx={{ textDecoration: "underline", textAlign: "left", mb: 2 }}
@@ -95,7 +100,7 @@ function Statistic(props: Props) {
               </Box>
             </Box>
             <Box>
-              Вчера {shipmentCountIsVisible ? "(число)" : "(вес)"}
+              Завтра {shipmentCountIsVisible ? "(число)" : "(вес)"}
               <Box sx={shipmentCountIsVisible ? valueStyles : value2Styles}>
                 {shipmentCountIsVisible
                   ? tomorrowShipment.count
@@ -104,7 +109,7 @@ function Statistic(props: Props) {
             </Box>
           </Stack>
         </Paper>
-        <Paper sx={paperStylesMajor(isLoading)}>
+        <Paper sx={paperStylesMajor(isLoading, isDesktop)}>
           <Box>
             <Box>
               Годовой рекорд 🚀
@@ -118,7 +123,7 @@ function Statistic(props: Props) {
             </Box>
           </Box>
         </Paper>
-        <Paper sx={paperStyles(isLoading)}>
+        <Paper sx={paperStyles(isLoading, isDesktop)}>
           <Typography
             variant="h6"
             sx={{ textDecoration: "underline", textAlign: "left", mb: 2 }}

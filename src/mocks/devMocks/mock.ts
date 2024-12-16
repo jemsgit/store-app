@@ -454,19 +454,36 @@ export default function mocks() {
       url: "/api/statistic",
       method: "get",
       timeout: 2000,
-      response: {
-        todayShipment: {
-          count: 23,
-          weight: 123,
-        },
-        tomorrowShipment: {
-          count: 42,
-          weight: 2312,
-        },
-        todayShipmentCount: 4324,
-        yesterdayShipmentCount: 423423,
-        yearRecord: 34234234,
-        monthlyAverageTime: 34,
+      response: () => {
+        return Math.random() > 0.5
+          ? {
+              todayShipment: {
+                count: 23,
+                weight: 123,
+              },
+              tomorrowShipment: {
+                count: 42,
+                weight: 2312,
+              },
+              todayShipmentCount: 4324,
+              yesterdayShipmentCount: 423423,
+              yearRecord: 34234234,
+              monthlyAverageTime: 34,
+            }
+          : {
+              todayShipment: {
+                count: 12,
+                weight: 111,
+              },
+              tomorrowShipment: {
+                count: 41,
+                weight: 23,
+              },
+              todayShipmentCount: 4329,
+              yesterdayShipmentCount: 4233,
+              yearRecord: 34238999,
+              monthlyAverageTime: 43,
+            };
       },
     },
   ];
