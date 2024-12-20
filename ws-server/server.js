@@ -540,7 +540,7 @@ function updateSlots() {
         new Date(),
         "YYYY-MM-DDTHH:mm:ss.SSS"
       );
-      slot[randomIndex].statusHistory = [
+      slots[randomIndex].statusHistory = [
         {
           state: "Подтвержден",
           stateTime: "2024-12-12T08:00:00.000Z",

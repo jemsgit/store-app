@@ -6,7 +6,7 @@ import { orderMapper } from "./order-mapper";
 export const ordersAdapter = {
   getOrders: async (): Promise<Order[] | undefined> => {
     try {
-      let res = await fetcher.get("/api/orders");
+      let res = await fetcher.get("/orders");
       return res.data.map(orderMapper);
     } catch (e) {
       console.log(e);
@@ -14,7 +14,7 @@ export const ordersAdapter = {
   },
   getStatistic: async (): Promise<Statistic | undefined> => {
     try {
-      let res = await fetcher.get("/api/statistic");
+      let res = await fetcher.get("/orders/stats");
       return res.data as Statistic;
     } catch (e) {
       console.log(e);
@@ -22,7 +22,7 @@ export const ordersAdapter = {
   },
   getPackers: async (): Promise<PackerResponseDTO | undefined> => {
     try {
-      let res = await fetcher.get("/api/packers");
+      let res = await fetcher.get("/packers/stats");
       return res.data;
     } catch (e) {
       console.log(e);

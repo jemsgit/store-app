@@ -35,6 +35,7 @@ class Fetcher {
 
 // Create a singleton fetcher instance
 const baseURL = import.meta.env.VITE_API_BASE_URL;
+console.log(baseURL);
 const fetcher = new Fetcher(baseURL);
 
 export default fetcher;

@@ -432,13 +432,13 @@ const packers = [
 export default function mocks() {
   return [
     {
-      url: "/api/orders",
+      url: "/orders",
       method: "get",
       timeout: 2000,
       response: slots,
     },
     {
-      url: "/api/packers",
+      url: "/packers/stats",
       method: "get",
       timeout: 2000,
       response: {
@@ -451,7 +451,7 @@ export default function mocks() {
       },
     },
     {
-      url: "/api/statistic",
+      url: "/orders/stats",
       method: "get",
       timeout: 2000,
       response: () => {

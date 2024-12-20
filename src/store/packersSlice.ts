@@ -54,6 +54,7 @@ const packersSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(fetchPackers.fulfilled, (state, action) => {
+        console.log(action.payload);
         if (action.payload) {
           const payload = action.payload as PackerResponseDTO;
           state.packers = payload.packers;

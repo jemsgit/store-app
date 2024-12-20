@@ -86,6 +86,7 @@ const slotsSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(fetchOrders.fulfilled, (state, action) => {
+        console.log(action.payload);
         state.orders = action.payload;
         state.isLoading = false;
       })
