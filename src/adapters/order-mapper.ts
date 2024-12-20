@@ -1,4 +1,4 @@
-import { OrderDTO, Order } from "../models/order";
+import { OrderDTO, Order, OrderStatus, OrderState } from "../models/order";
 import { msToHuman } from "../utils/date-utils";
 
 function getTimeDiff(packedTime?: Date, readyTime?: Date): string | undefined {
@@ -8,13 +8,20 @@ function getTimeDiff(packedTime?: Date, readyTime?: Date): string | undefined {
   return msToHuman(packedTime?.getTime() - readyTime?.getTime());
 }
 
+function getStatusTime(state: OrderState, history?: OrderStatus[]) {
+  if (!history || !history.length) {
+    return;
+  }
+  const statusFromHistory = history.find((item) => item.state === state);
+  if (!statusFromHistory) {
+    return;
+  }
+  return new Date(statusFromHistory.stateTime.replace("Z", ""));
+}
+
 export const orderMapper = (item: OrderDTO): Order => {
-  const readyForPackingAt = item.readyForPackingAt
-    ? new Date(item.readyForPackingAt.replace("Z", ""))
-    : undefined;
-  const packedAt = item.packedAt
-    ? new Date(item.packedAt.replace("Z", ""))
-    : undefined;
+  const readyForPackingAt = getStatusTime("Подтвержден", item.statusHistory);
+  const packedAt = getStatusTime("Собран", item.statusHistory);
   const packingTime =
     item.state === "Собран"
       ? getTimeDiff(packedAt, readyForPackingAt)
