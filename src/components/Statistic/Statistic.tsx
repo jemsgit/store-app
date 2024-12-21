@@ -2,6 +2,7 @@ import { Box, Paper, Stack, Typography } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import {
   containerStyles,
+  paperContainerStyles,
   paperStyles,
   paperStylesMajor,
   paperValues,
@@ -83,62 +84,74 @@ function Statistic(props: Props) {
   return (
     <Box sx={containerStyles}>
       <Stack direction={isDesktop ? "row" : "column"} sx={staticticsStack}>
-        <Paper sx={paperStyles(isLoading, isDesktop)}>
-          <Typography
-            variant="h6"
-            sx={{ textDecoration: "underline", textAlign: "left", mb: 2 }}
-          >
-            Заказы
-          </Typography>
-          <Stack direction="row" sx={paperValues}>
+        <Box sx={paperContainerStyles(isDesktop)}>
+          <Paper sx={paperStyles(isLoading, isDesktop)}>
+            <Typography
+              variant="h6"
+              sx={{ textDecoration: "underline", textAlign: "left", mb: 2 }}
+            >
+              Заказы
+            </Typography>
+            <Stack direction="row" sx={paperValues}>
+              <Box>
+                Сегодня {shipmentCountIsVisible ? "(число)" : "(вес)"}
+                <Box sx={shipmentCountIsVisible ? valueStyles : value2Styles}>
+                  {shipmentCountIsVisible
+                    ? todayShipment.count
+                    : todayShipment.weight}
+                </Box>
+              </Box>
+              <Box>
+                Завтра {shipmentCountIsVisible ? "(число)" : "(вес)"}
+                <Box sx={shipmentCountIsVisible ? valueStyles : value2Styles}>
+                  {shipmentCountIsVisible
+                    ? tomorrowShipment.count
+                    : tomorrowShipment.weight}
+                </Box>
+              </Box>
+            </Stack>
+          </Paper>
+        </Box>
+        <Stack
+          direction={isDesktop ? "row" : "column"}
+          sx={{
+            justifyContent: "space-between",
+            gap: 3,
+            flex: "2",
+            boxSizing: "border-box",
+          }}
+        >
+          <Paper sx={paperStylesMajor(isLoading, isDesktop)}>
             <Box>
-              Сегодня {shipmentCountIsVisible ? "(число)" : "(вес)"}
-              <Box sx={shipmentCountIsVisible ? valueStyles : value2Styles}>
-                {shipmentCountIsVisible
-                  ? todayShipment.count
-                  : todayShipment.weight}
+              <Box>
+                Годовой рекорд 🚀
+                <Box sx={valueStylesMajor}>
+                  <span ref={recordElRef}>{yearRecord}</span>
+                </Box>
+              </Box>
+              <Box>
+                Среднее время сборки 🕑
+                <Box sx={valueStylesMajor}>{monthlyAverageTime}</Box>
               </Box>
             </Box>
-            <Box>
-              Завтра {shipmentCountIsVisible ? "(число)" : "(вес)"}
-              <Box sx={shipmentCountIsVisible ? valueStyles : value2Styles}>
-                {shipmentCountIsVisible
-                  ? tomorrowShipment.count
-                  : tomorrowShipment.weight}
+          </Paper>
+          <Paper sx={paperStyles(isLoading, isDesktop)}>
+            <Typography
+              variant="h6"
+              sx={{ textDecoration: "underline", textAlign: "left", mb: 2 }}
+            >
+              Отгрузки
+            </Typography>
+            <Stack direction="row" sx={paperValues}>
+              <Box>
+                Сегодня <Box sx={valueStyles}>{todayShipmentCount} </Box>
               </Box>
-            </Box>
-          </Stack>
-        </Paper>
-        <Paper sx={paperStylesMajor(isLoading, isDesktop)}>
-          <Box>
-            <Box>
-              Годовой рекорд 🚀
-              <Box sx={valueStylesMajor}>
-                <span ref={recordElRef}>{yearRecord}</span>
+              <Box>
+                Вчера <Box sx={valueStyles}>{yesterdayShipmentCount}</Box>
               </Box>
-            </Box>
-            <Box>
-              Среднее время сборки 🕑
-              <Box sx={valueStylesMajor}>{monthlyAverageTime}</Box>
-            </Box>
-          </Box>
-        </Paper>
-        <Paper sx={paperStyles(isLoading, isDesktop)}>
-          <Typography
-            variant="h6"
-            sx={{ textDecoration: "underline", textAlign: "left", mb: 2 }}
-          >
-            Отгрузки
-          </Typography>
-          <Stack direction="row" sx={paperValues}>
-            <Box>
-              Сегодня <Box sx={valueStyles}>{todayShipmentCount} </Box>
-            </Box>
-            <Box>
-              Вчера <Box sx={valueStyles}>{yesterdayShipmentCount}</Box>
-            </Box>
-          </Stack>
-        </Paper>
+            </Stack>
+          </Paper>
+        </Stack>
       </Stack>
     </Box>
   );

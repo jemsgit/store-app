@@ -29,10 +29,12 @@ function OrdersPage() {
     dispatch(fetchOrders());
     dispatch(fetchPackers());
     dispatch(fetchStatistic());
+
     const timerId = setInterval(() => {
       dispatch(fetchPackers());
       dispatch(fetchStatistic());
     }, 1000 * 60 * 5);
+
     return () => {
       clearInterval(timerId);
     };
@@ -107,14 +109,14 @@ function OrdersPage() {
           alignItems: "stretch",
         }}
       >
-        <Box sx={{ flex: "1 1 auto" }}>
+        <Box sx={{ flex: "1" }}>
           <Packers
             packers={packers}
             isLoading={isLoadingPackers}
             record={record}
           />
         </Box>
-        <Box sx={{ flex: "2 2 auto" }}>
+        <Box sx={{ flex: "2" }}>
           <OrdersList orders={orders} isLoading={isLoading} />
         </Box>
       </Stack>

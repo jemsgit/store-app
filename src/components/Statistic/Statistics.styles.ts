@@ -7,13 +7,19 @@ export const containerStyles: SxProps<Theme> = {
   mb: 2,
 };
 
+export const paperContainerStyles = (isDesktop: boolean): SxProps<Theme> => ({
+  flex: isDesktop ? "1" : "1 1 auto",
+  display: "flex",
+});
+
 export const paperStyles = (
   isLoading: boolean,
   isDesktop: boolean
 ): SxProps<Theme> => ({
   padding: "12px 20px",
-  flex: isDesktop ? "1 1 300px" : "1 1 auto",
-  maxWidth: isDesktop ? "400px" : "unset",
+  boxSizing: "border-box",
+  flex: isDesktop ? "1" : "1 1 auto",
+  textAlign: "left",
   boxShadow: (theme) => `1px 1px 1px 1px ${theme.palette.text.secondary}`,
   background: isLoading ? "linear-gradient(-45deg, #0a171c, #efebda)" : "unset",
   animation: isLoading
@@ -59,7 +65,8 @@ export const paperStylesMajor = (
   isDesktop: boolean
 ): SxProps<Theme> => ({
   padding: "12px 20px",
-  flex: isDesktop ? "1 1 300px" : "1 1 auto",
+  flex: isDesktop ? "1" : "1 1 auto",
+  boxSizing: "border-box",
   maxWidth: isDesktop ? "400px" : "unset",
   textAlign: "left",
   boxShadow: (theme) => `1px 1px 1px 1px ${theme.palette.text.secondary}`,
