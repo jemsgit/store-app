@@ -55,7 +55,7 @@ export const valueStylesMajor: SxProps<Theme> = {
   fontWeight: 600,
   color: "black",
   "&>.record": {
-    display: "block",
+    display: "inline-block",
     animation: "scale 4s ease infinite",
   },
 };

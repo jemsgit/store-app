@@ -1,5 +1,6 @@
 import { Box, Paper, Stack, Typography } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
+import confetti from "canvas-confetti";
 import {
   containerStyles,
   paperContainerStyles,
@@ -72,6 +73,10 @@ function Statistic(props: Props) {
           }, 3000);
         }
       }, 3000);
+      confetti({
+        particleCount: 300,
+        spread: 160,
+      });
 
       try {
         auido.play();
