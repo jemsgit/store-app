@@ -81,7 +81,7 @@ function Order(props: Props) {
     );
   }
 
-  if (order.state === "Требуется отгрузка") {
+  if (order.state === "Отгружен") {
     return (
       <Box
         sx={{

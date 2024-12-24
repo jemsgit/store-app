@@ -1,4 +1,4 @@
-export type OrderState = "Собран" | "Подтвержден" | "Требуется отгрузка";
+export type OrderState = "Собран" | "Подтвержден" | "Отгружен";
 
 export type OrderStatus = {
   state: OrderState;

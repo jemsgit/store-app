@@ -22,7 +22,7 @@ const splitOrdersByColumns = (orders: OrderModel[]) => {
 
   const readyForPacking = ordersByStatus["Подтвержден"] || [];
   const packed = ordersByStatus["Собран"] || [];
-  const readyForDeliver = ordersByStatus["Требуется отгрузка"] || [];
+  const readyForDeliver = ordersByStatus["Отгружен"] || [];
   return [readyForPacking, packed, readyForDeliver];
 };
 
@@ -59,7 +59,7 @@ function OrdersList(props: OrdersListProps) {
         <div className={styles.header}>
           <span>Подтвержен</span>
           <span>Собран</span>
-          <span>Требуется отгрузка</span>
+          <span>Отгружен</span>
         </div>
 
         <div className={styles.body}>

@@ -41,10 +41,8 @@ class RealTimeOrdersService {
       if (currentOrder) {
         if (
           (currentOrder.state === "Подтвержден" &&
-            (order.state === "Собран" ||
-              order.state === "Требуется отгрузка")) ||
-          (currentOrder.state === "Собран" &&
-            order.state === "Требуется отгрузка")
+            (order.state === "Собран" || order.state === "Отгружен")) ||
+          (currentOrder.state === "Собран" && order.state === "Отгружен")
         ) {
           try {
             audio.play();

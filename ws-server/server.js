@@ -31,7 +31,7 @@ const slots = [
         stateTime: "2024-12-12T08:00:00.000Z",
       },
       {
-        state: "Требуется отгрузка",
+        state: "Отгружен",
         stateTime: "2024-12-14T12:34:56.000Z",
       },
     ],
@@ -50,7 +50,7 @@ const slots = [
         stateTime: "2024-12-12T08:00:00.000Z",
       },
       {
-        state: "Требуется отгрузка",
+        state: "Отгружен",
         stateTime: "2024-12-14T12:34:56.000Z",
       },
     ],
@@ -59,7 +59,7 @@ const slots = [
     id: "4f9f4d7a-1c82-11ed-0a80-0b95002e06e7",
     type: "customerorder",
     name: "06011",
-    state: "Требуется отгрузка",
+    state: "Отгружен",
     stateTime: "2024-12-08T10:00:00.000Z",
     readyForPackingAt: "2024-12-08T10:30:00.000Z",
     packedAt: "2024-12-08T11:00:00.000Z",
@@ -73,7 +73,7 @@ const slots = [
         stateTime: "2024-12-13T15:30:00.000Z",
       },
       {
-        state: "Требуется отгрузка",
+        state: "Отгружен",
         stateTime: "2024-12-14T12:34:56.000Z",
       },
     ],
@@ -92,7 +92,7 @@ const slots = [
         stateTime: "2024-12-12T08:00:00.000Z",
       },
       {
-        state: "Требуется отгрузка",
+        state: "Отгружен",
         stateTime: "2024-12-14T12:34:56.000Z",
       },
     ],
@@ -111,7 +111,7 @@ const slots = [
         stateTime: "2024-12-12T08:00:00.000Z",
       },
       {
-        state: "Требуется отгрузка",
+        state: "Отгружен",
         stateTime: "2024-12-14T12:34:56.000Z",
       },
     ],
@@ -120,7 +120,7 @@ const slots = [
     id: "7f9f4d7a-1c82-11ed-0a80-0b95002e06ea",
     type: "customerorder",
     name: "06014",
-    state: "Требуется отгрузка",
+    state: "Отгружен",
     stateTime: "2024-12-11T14:00:00.000Z",
     readyForPackingAt: "2024-12-11T14:30:00.000Z",
     packedAt: "2024-12-11T15:00:00.000Z",
@@ -130,7 +130,7 @@ const slots = [
         stateTime: "2024-12-12T08:00:00.000Z",
       },
       {
-        state: "Требуется отгрузка",
+        state: "Отгружен",
         stateTime: "2024-12-14T12:34:56.000Z",
       },
     ],
@@ -149,7 +149,7 @@ const slots = [
         stateTime: "2024-12-12T08:00:00.000Z",
       },
       {
-        state: "Требуется отгрузка",
+        state: "Отгружен",
         stateTime: "2024-12-14T12:34:56.000Z",
       },
     ],
@@ -168,7 +168,7 @@ const slots = [
         stateTime: "2024-12-12T08:00:00.000Z",
       },
       {
-        state: "Требуется отгрузка",
+        state: "Отгружен",
         stateTime: "2024-12-14T12:34:56.000Z",
       },
     ],
@@ -177,7 +177,7 @@ const slots = [
     id: "af9f4d7a-1c82-11ed-0a80-0b95002e06ed",
     type: "customerorder",
     name: "06017",
-    state: "Требуется отгрузка",
+    state: "Отгружен",
     stateTime: "2024-12-14T17:00:00.000Z",
     readyForPackingAt: "2024-12-14T17:30:00.000Z",
     packedAt: "2024-12-14T18:00:00.000Z",
@@ -191,7 +191,7 @@ const slots = [
         stateTime: "2024-12-13T15:30:00.000Z",
       },
       {
-        state: "Требуется отгрузка",
+        state: "Отгружен",
         stateTime: "2024-12-14T12:34:56.000Z",
       },
     ],
@@ -214,7 +214,7 @@ const slots = [
         stateTime: "2024-12-13T15:30:00.000Z",
       },
       {
-        state: "Требуется отгрузка",
+        state: "Отгружен",
         stateTime: "2024-12-14T12:34:56.000Z",
       },
     ],
@@ -234,7 +234,7 @@ const slots = [
         stateTime: "2024-12-12T08:00:00.000Z",
       },
       {
-        state: "Требуется отгрузка",
+        state: "Отгружен",
         stateTime: "2024-12-14T12:34:56.000Z",
       },
     ],
@@ -253,7 +253,7 @@ const slots = [
         stateTime: "2024-12-12T08:00:00.000Z",
       },
       {
-        state: "Требуется отгрузка",
+        state: "Отгружен",
         stateTime: "2024-12-14T12:34:56.000Z",
       },
     ],
@@ -262,7 +262,7 @@ const slots = [
     id: "4f9f4d7a-1c82-11ed-0a80-0b95002e06e71",
     type: "customerorder",
     name: "060111",
-    state: "Требуется отгрузка",
+    state: "Отгружен",
     stateTime: "2024-12-08T10:00:00.000Z",
     readyForPackingAt: "2024-12-08T10:30:00.000Z",
     packedAt: "2024-12-08T11:00:00.000Z",
@@ -276,7 +276,7 @@ const slots = [
         stateTime: "2024-12-13T15:30:00.000Z",
       },
       {
-        state: "Требуется отгрузка",
+        state: "Отгружен",
         stateTime: "2024-12-14T12:34:56.000Z",
       },
     ],
@@ -295,7 +295,7 @@ const slots = [
         stateTime: "2024-12-12T08:00:00.000Z",
       },
       {
-        state: "Требуется отгрузка",
+        state: "Отгружен",
         stateTime: "2024-12-14T12:34:56.000Z",
       },
     ],
@@ -314,7 +314,7 @@ const slots = [
         stateTime: "2024-12-12T08:00:00.000Z",
       },
       {
-        state: "Требуется отгрузка",
+        state: "Отгружен",
         stateTime: "2024-12-14T12:34:56.000Z",
       },
     ],
@@ -323,7 +323,7 @@ const slots = [
     id: "7f9f4d7a-1c82-11ed-0a80-0b95002e06ea1",
     type: "customerorder",
     name: "060141",
-    state: "Требуется отгрузка",
+    state: "Отгружен",
     stateTime: "2024-12-11T14:00:00.000Z",
     readyForPackingAt: "2024-12-11T14:30:00.000Z",
     packedAt: "2024-12-11T15:00:00.000Z",
@@ -333,7 +333,7 @@ const slots = [
         stateTime: "2024-12-12T08:00:00.000Z",
       },
       {
-        state: "Требуется отгрузка",
+        state: "Отгружен",
         stateTime: "2024-12-14T12:34:56.000Z",
       },
     ],
@@ -352,7 +352,7 @@ const slots = [
         stateTime: "2024-12-12T08:00:00.000Z",
       },
       {
-        state: "Требуется отгрузка",
+        state: "Отгружен",
         stateTime: "2024-12-14T12:34:56.000Z",
       },
     ],
@@ -371,7 +371,7 @@ const slots = [
         stateTime: "2024-12-12T08:00:00.000Z",
       },
       {
-        state: "Требуется отгрузка",
+        state: "Отгружен",
         stateTime: "2024-12-14T12:34:56.000Z",
       },
     ],
@@ -380,7 +380,7 @@ const slots = [
     id: "af9f4d7a-1c82-11ed-0a80-0b95002e06ed1",
     type: "customerorder",
     name: "060171",
-    state: "Требуется отгрузка",
+    state: "Отгружен",
     stateTime: "2024-12-14T17:00:00.000Z",
     readyForPackingAt: "2024-12-14T17:30:00.000Z",
     packedAt: "2024-12-14T18:00:00.000Z",
@@ -394,7 +394,7 @@ const slots = [
         stateTime: "2024-12-13T15:30:00.000Z",
       },
       {
-        state: "Требуется отгрузка",
+        state: "Отгружен",
         stateTime: "2024-12-14T12:34:56.000Z",
       },
     ],
@@ -417,7 +417,7 @@ const slots = [
         stateTime: "2024-12-13T15:30:00.000Z",
       },
       {
-        state: "Требуется отгрузка",
+        state: "Отгружен",
         stateTime: "2024-12-14T12:34:56.000Z",
       },
     ],
@@ -482,7 +482,7 @@ function updateSlots() {
           stateTime: "2024-12-12T08:00:00.000Z",
         },
         {
-          state: "Требуется отгрузка",
+          state: "Отгружен",
           stateTime: "2024-12-14T12:34:56.000Z",
         },
       ],
@@ -522,20 +522,20 @@ function updateSlots() {
           new Date(),
           "YYYY-MM-DDTHH:mm:ss.SSS"
         );
-        slots[randomIndex].state = "Требуется отгрузка";
+        slots[randomIndex].state = "Отгружен";
         slots[randomIndex].statusHistory = [
           {
             state: "Подтвержден",
             stateTime: "2024-12-12T08:00:00.000Z",
           },
           {
-            state: "Требуется отгрузка",
+            state: "Отгружен",
             stateTime: "2024-12-14T12:34:56.000Z",
           },
         ];
       }
     } else if (slots[randomIndex].state === "Собран") {
-      slots[randomIndex].state = "Требуется отгрузка";
+      slots[randomIndex].state = "Отгружен";
       slots[randomIndex].stateTime = dateToFormat(
         new Date(),
         "YYYY-MM-DDTHH:mm:ss.SSS"
@@ -550,7 +550,7 @@ function updateSlots() {
           stateTime: "2024-12-13T15:30:00.000Z",
         },
         {
-          state: "Требуется отгрузка",
+          state: "Отгружен",
           stateTime: "2024-12-14T12:34:56.000Z",
         },
       ];
