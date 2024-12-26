@@ -10,7 +10,7 @@ export const cointainer: SxProps<Theme> = {
 };
 
 export const content = {
-  maxWidth: "1280px",
+  maxWidth: "1980px",
   width: "100%",
   margin: "0 auto",
   padding: "0.5em 2em 2em",
@@ -20,7 +20,7 @@ export const content = {
 };
 
 export const mobileContent = {
-  maxWidth: "1280px",
+  maxWidth: "1980px",
   width: "100%",
   margin: "0 auto",
   padding: "0.5em",
