@@ -38,5 +38,8 @@ export const orderMapper = (item: OrderDTO): Order => {
     packingTime,
     isPacked,
     stateTime: new Date(item.stateTime.replace("Z", "")),
+    plannedShipmentDate: item.plannedShipmentDate
+      ? new Date(item.plannedShipmentDate.replace("Z", "")).getTime()
+      : Infinity,
   };
 };

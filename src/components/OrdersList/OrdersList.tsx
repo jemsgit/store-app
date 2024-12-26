@@ -23,7 +23,9 @@ const splitOrdersByColumns = (orders: OrderModel[]) => {
   const readyForPacking = ordersByStatus["Подтвержден"] || [];
   const packed = ordersByStatus["Собран"] || [];
   const readyForDeliver = ordersByStatus["Отгружен"] || [];
-  return [readyForPacking, packed, readyForDeliver];
+  const fastDeliver = ordersByStatus["Срочно отгрузить!"] || [];
+
+  return [readyForPacking, packed, fastDeliver, readyForDeliver];
 };
 
 function OrdersList(props: OrdersListProps) {
@@ -35,6 +37,7 @@ function OrdersList(props: OrdersListProps) {
         [1, 1, 1, 1],
         [1, 1, 1, 1, 1],
         [1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1],
       ]
     : splitOrdersByColumns(orders);
 
@@ -59,11 +62,11 @@ function OrdersList(props: OrdersListProps) {
         <div className={styles.header}>
           <span>Подтвержен</span>
           <span>Собран</span>
+          <span>Срочно отгрузить</span>
           <span>Отгружен</span>
         </div>
 
         <div className={styles.body}>
-          {/* Determine the max number of rows */}
           {Array.from(
             {
               length: Math.max(...splitedOrders.map((group) => group.length)),

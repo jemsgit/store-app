@@ -467,6 +467,8 @@ export default function mocks() {
               },
               todayShipmentCount: 4324,
               yesterdayShipmentCount: 423423,
+              todayAcceptedCount: 4324,
+              yesterdayAcceptedCount: 423423,
               yearRecord: 34234234,
               monthlyAverageTime: 34,
             }
@@ -481,6 +483,8 @@ export default function mocks() {
               },
               todayShipmentCount: 4329,
               yesterdayShipmentCount: 4233,
+              todayAcceptedCount: 3,
+              yesterdayAcceptedCount: 43,
               yearRecord: 34238999,
               monthlyAverageTime: 43,
             };

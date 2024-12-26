@@ -93,7 +93,7 @@ function Order(props: Props) {
         }}
       >
         <span>{order.name}</span>
-        <span>{!order.isPacked ? "Пропущена упаковка" : ""}</span>
+        <span style={{ fontSize: "16px" }}>{!order.isPacked ? "⚠️" : ""}</span>
       </Box>
     );
   }

@@ -41,6 +41,8 @@ export const valueStyles: SxProps<Theme> = {
   fontSize: "40px",
   fontWeight: 600,
   color: "#fcff00",
+  wordBreak: "break-word",
+  lineHeight: "normal",
 };
 
 export const value2Styles: SxProps<Theme> = {
@@ -48,6 +50,8 @@ export const value2Styles: SxProps<Theme> = {
   fontWeight: 600,
   color: "#4dccff",
   textShadow: "4px 1px 11px #0300ff",
+  wordBreak: "break-word",
+  lineHeight: "normal",
 };
 
 export const valueStylesMajor: SxProps<Theme> = {

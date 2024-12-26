@@ -29,6 +29,8 @@ interface Props {
   };
   todayShipmentCount: number;
   yesterdayShipmentCount: number;
+  todayAcceptedCount: number;
+  yesterdayAcceptedCount: number;
   yearRecord: number;
   monthlyAverageTime: number;
   isLoading: boolean;
@@ -40,6 +42,8 @@ function Statistic(props: Props) {
     tomorrowShipment,
     todayShipmentCount,
     yesterdayShipmentCount,
+    todayAcceptedCount,
+    yesterdayAcceptedCount,
     yearRecord,
     monthlyAverageTime,
     isLoading,
@@ -117,15 +121,25 @@ function Statistic(props: Props) {
             </Stack>
           </Paper>
         </Box>
-        <Stack
-          direction={isDesktop ? "row" : "column"}
-          sx={{
-            justifyContent: "space-between",
-            gap: 3,
-            flex: "2",
-            boxSizing: "border-box",
-          }}
-        >
+        <Box sx={paperContainerStyles(isDesktop)}>
+          <Paper sx={paperStyles(isLoading, isDesktop)}>
+            <Typography
+              variant="h6"
+              sx={{ textDecoration: "underline", textAlign: "left", mb: 2 }}
+            >
+              Приемки
+            </Typography>
+            <Stack direction="row" sx={paperValues}>
+              <Box>
+                Сегодня <Box sx={valueStyles}>{todayShipmentCount} </Box>
+              </Box>
+              <Box>
+                Вчера <Box sx={valueStyles}>{yesterdayShipmentCount}</Box>
+              </Box>
+            </Stack>
+          </Paper>
+        </Box>
+        <Box sx={paperContainerStyles(isDesktop)}>
           <Paper sx={paperStylesMajor(isLoading, isDesktop)}>
             <Box>
               <Box>
@@ -140,6 +154,8 @@ function Statistic(props: Props) {
               </Box>
             </Box>
           </Paper>
+        </Box>
+        <Box sx={paperContainerStyles(isDesktop)}>
           <Paper sx={paperStyles(isLoading, isDesktop)}>
             <Typography
               variant="h6"
@@ -149,14 +165,14 @@ function Statistic(props: Props) {
             </Typography>
             <Stack direction="row" sx={paperValues}>
               <Box>
-                Сегодня <Box sx={valueStyles}>{todayShipmentCount} </Box>
+                Сегодня <Box sx={valueStyles}>{todayAcceptedCount} </Box>
               </Box>
               <Box>
-                Вчера <Box sx={valueStyles}>{yesterdayShipmentCount}</Box>
+                Вчера <Box sx={valueStyles}>{yesterdayAcceptedCount}</Box>
               </Box>
             </Stack>
           </Paper>
-        </Stack>
+        </Box>
       </Stack>
     </Box>
   );

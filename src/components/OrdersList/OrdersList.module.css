@@ -11,7 +11,8 @@
 
 .header span {
   display: flex;
-  flex: 1 1 300px;
+  flex: 1 1 0;
+  width: 25%;
   padding: 10px;
 }
 
@@ -27,9 +28,9 @@
 
 .cell {
   border: 1px solid rgb(36 43 53);
-  flex: 1 1 300px;
+  flex: 1 1 0;
   border-top-width: 0;
-  width: 33%;
+  width: 25%;
 }
 
 .cell:not(:last-child) {

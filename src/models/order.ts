@@ -1,4 +1,8 @@
-export type OrderState = "Собран" | "Подтвержден" | "Отгружен";
+export type OrderState =
+  | "Собран"
+  | "Подтвержден"
+  | "Отгружен"
+  | "Срочно отгрузить!";
 
 export type OrderStatus = {
   state: OrderState;
@@ -14,6 +18,7 @@ export type OrderDTO = {
   readyForPackingAt?: string; // DATE "2024-12-06T15:30:00.000Z"
   packedAt?: string; // DATE "2024-12-06T15:30:00.000Z"
   readyForDeliverAt: string; // DATE "2024-12-06T15:30:00.000Z"
+  plannedShipmentDate?: string; // DATE "2024-12-06T15:30:00.000Z"
   statusHistory: OrderStatus[];
 };
 
@@ -27,6 +32,7 @@ export type Order = {
   isPacked: boolean; // был в статусе собран
   stateTime: Date;
   updated?: boolean;
+  plannedShipmentDate: number; //timestamp
 };
 
 export type StatisticDTO = {
@@ -40,6 +46,8 @@ export type StatisticDTO = {
   };
   todayShipmentCount: number;
   yesterdayShipmentCount: number;
+  todayAcceptedCount: number;
+  yesterdayAcceptedCount: number;
   yearRecord: number;
   monthlyAverageTime: number;
 };
@@ -55,6 +63,8 @@ export type Statistic = {
   };
   todayShipmentCount: number;
   yesterdayShipmentCount: number;
+  todayAcceptedCount: number;
+  yesterdayAcceptedCount: number;
   yearRecord: number;
   monthlyAverageTime: number;
 };

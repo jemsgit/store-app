@@ -60,6 +60,8 @@ function OrdersPage() {
     yesterdayShipmentCount,
     yearRecord,
     monthlyAverageTime,
+    todayAcceptedCount,
+    yesterdayAcceptedCount,
   } = statistic;
 
   return (
@@ -100,6 +102,8 @@ function OrdersPage() {
         yesterdayShipmentCount={yesterdayShipmentCount}
         yearRecord={yearRecord}
         monthlyAverageTime={monthlyAverageTime}
+        todayAcceptedCount={todayAcceptedCount}
+        yesterdayAcceptedCount={yesterdayAcceptedCount}
         isLoading={isStatisticLoading}
       />
       <Stack

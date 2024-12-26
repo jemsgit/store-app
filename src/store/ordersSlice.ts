@@ -26,6 +26,8 @@ const initialState: SlotsState = {
     },
     todayShipmentCount: 0,
     yesterdayShipmentCount: 0,
+    todayAcceptedCount: 0,
+    yesterdayAcceptedCount: 0,
     yearRecord: 0,
     monthlyAverageTime: 0,
   },
@@ -76,8 +78,11 @@ const slotsSlice = createSlice({
           ...update,
         };
       } else {
-        state.orders.unshift(update);
+        state.orders.push(update);
       }
+      state.orders.sort(
+        (a, b) => a.plannedShipmentDate - b.plannedShipmentDate
+      );
     },
   },
   extraReducers: (builder) => {
@@ -86,8 +91,9 @@ const slotsSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(fetchOrders.fulfilled, (state, action) => {
-        console.log(action.payload);
-        state.orders = action.payload;
+        state.orders = action.payload.sort(
+          (a, b) => a.plannedShipmentDate - b.plannedShipmentDate
+        );
         state.isLoading = false;
       })
       .addCase(fetchStatistic.pending, (state) => {
