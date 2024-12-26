@@ -107,7 +107,7 @@ function Statistic(props: Props) {
                 <Box sx={shipmentCountIsVisible ? valueStyles : value2Styles}>
                   {shipmentCountIsVisible
                     ? todayShipment.count
-                    : todayShipment.weight}
+                    : Math.round(todayShipment.weight)}
                 </Box>
               </Box>
               <Box>
@@ -115,7 +115,7 @@ function Statistic(props: Props) {
                 <Box sx={shipmentCountIsVisible ? valueStyles : value2Styles}>
                   {shipmentCountIsVisible
                     ? tomorrowShipment.count
-                    : tomorrowShipment.weight}
+                    : Math.round(tomorrowShipment.weight)}
                 </Box>
               </Box>
             </Stack>
