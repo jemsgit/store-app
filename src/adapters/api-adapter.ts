@@ -23,6 +23,9 @@ export const ordersAdapter = {
   getPackers: async (): Promise<PackerResponseDTO | undefined> => {
     try {
       let res = await fetcher.get("/packers/stats");
+      if (!res.data.packers) {
+        res.data.packers = [];
+      }
       return res.data;
     } catch (e) {
       console.log(e);
