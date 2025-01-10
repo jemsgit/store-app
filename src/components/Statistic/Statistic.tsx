@@ -127,7 +127,7 @@ function Statistic(props: Props) {
               variant="h6"
               sx={{ textDecoration: "underline", textAlign: "left", mb: 2 }}
             >
-              Приемки
+              Отгрузки
             </Typography>
             <Stack direction="row" sx={paperValues}>
               <Box>
@@ -161,7 +161,7 @@ function Statistic(props: Props) {
               variant="h6"
               sx={{ textDecoration: "underline", textAlign: "left", mb: 2 }}
             >
-              Отгрузки
+              Приемки
             </Typography>
             <Stack direction="row" sx={paperValues}>
               <Box>
